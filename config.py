@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
+
 from dotenv import load_dotenv
 
 """
@@ -46,3 +47,15 @@ class Config(object):
 
     # elastic search
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
+
+    # yxreader
+    USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36'
+    TIMEZONE = 'Asia/Shanghai'
+
+    # Engine config
+    URL_PHONE = 'https://m.baidu.com/s'
+    URL_PC = 'http://www.baidu.com/s'
+    BAIDU_RN = 15
+    SO_URL = "https://www.so.com/s"
+    BY_URL = "https://www.bing.com/search"
+    DUCKGO_URL = "https://duckduckgo.com/html"

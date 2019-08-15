@@ -33,7 +33,17 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
     login.init_app(app)
     mail.init_app(app)
+
+    from app.search import bp as search_bp
+    app.register_blueprint(search_bp)
+
     # send error email
+    # send_error_mail(app)
+
+    return app
+
+
+def send_error_mail(app):
     if not (app.debug or app.testing):
         if app.config['MAIL_SERVER']:
             auth = None
@@ -68,5 +78,3 @@ def create_app(config_class=Config):
 
         app.logger.setLevel(logging.INFO)
         app.logger.info('Microblog startup')
-
-    return app

@@ -1,0 +1,39 @@
+{% extends "main.html" %}
+
+{% block header %}
+    <title>极致舒心体验 - 印象阅读</title>
+    <link rel="stylesheet" href="static/novels/css/index.css">
+{% endblock %}
+
+{% block content %}
+
+    <div class="header">
+        {% if is_login %}
+            {% include "login.html" %}
+        {% else %}
+            <div class="login">
+                <a class="btn btn-primary pull-right" href="#" role="button" data-toggle="modal"
+                   data-target="#login">登录</a>
+            </div>
+        {% endif %}
+    </div>
+    <div class="container">
+        <div class="logo">
+            <img class="img-responsive center-block" src="static/novels/img/logo.jpg" alt="yxreader">
+        </div>
+        <form action="/search" method="get" class="home_search center-block">
+            <div class="search center-block">
+                <input type="text" name="wd" class="form-control center-block" placeholder="请输入小说名">
+                <input class="btn btn-default" type="submit" value="搜一搜">
+            </div>
+        </form>
+        <div class="owl_search_ranking center-block">
+            <span style="font-size: 100%" class="label label-info">搜索排行:</span>
+            {#        {%for novels_name in search_ranking%}#}
+            {#        <a target="_blank" href="/search?wd={{novels_name.keyword}}"><span#}
+            {#                class="label label-primary">{{novels_name.keyword}}</span></a>#}
+            {#        {%endfor%}#}
+            {#        <a target="_blank" href="/md"><span class="label label-primary" style="background: #d4507d">更多</span></a>#}
+        </div>
+    </div>
+{% endblock %}
